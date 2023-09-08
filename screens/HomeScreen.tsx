@@ -10,7 +10,7 @@ const HomeScreen = () => {
 const styles = StyleSheet.create({
     container:{
         minHeight:'80%',
-        backgroundColor:'gray',
+        backgroundColor:'#FA8072',
         justifyContent:'center',
     },
     homeText:{
