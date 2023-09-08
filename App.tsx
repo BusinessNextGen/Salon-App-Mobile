@@ -1,27 +1,43 @@
 import { StatusBar } from 'expo-status-bar';
 import { Text, View, SafeAreaView} from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import HomeScreen from './screens/HomeScreen';
+import Services from './screens/Services';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { Ionicons } from '@expo/vector-icons';
 
+const Stack = createNativeStackNavigator();
+const Tab = createBottomTabNavigator();
+
+function MyTabs() {
+  return (
+    <Tab.Navigator>
+      <Tab.Screen name="Home" component={HomeScreen} options={{
+      tabBarLabel: 'Home',
+      tabBarIcon: ({ color, size }) => (
+        <Ionicons name="home" color={color} size={size} />
+      ),
+    }}/>
+      <Tab.Screen name="Services" component={Services} options={{
+      tabBarLabel: 'Services',
+      tabBarIcon: ({ color, size }) => (
+        <Ionicons name="menu" color={color} size={size} />
+      ),
+    }}/>
+    </Tab.Navigator>
+  );
+}
 function App() {
  
   return (
-    <SafeAreaView className="border border-gray-300">
-      <View className="px-3 py-5">
-        <Text>Open up App.js to start working on your app!</Text>
-        <StatusBar style="auto" />
-        <Text>Hello World</Text>
-        <Text className="text-blue-500 text-xl px-5 ">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor cum dicta nihil unde eos
-          enim iste reiciendis temporibus officia quae consequuntur, aliquid quos recusandae ipsa
-          aperiam, similique nisi quasi nobis repellendus fuga optio. Accusamus?
-        </Text>
-        <Text>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor cum dicta nihil unde eos
-          enim iste reiciendis temporibus officia quae consequuntur, aliquid quos recusandae ipsa
-          aperiam, similique nisi quasi nobis repellendus fuga optio. Accusamus?
-        </Text>
-        
-      </View>
-    </SafeAreaView>
+    <NavigationContainer>
+      <Stack.Navigator>
+      <Stack.Screen name=" " component={MyTabs}/>
+        <Stack.Screen name="Home" component={HomeScreen}/>
+        <Stack.Screen name="Services" component={Services}/>
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
 
