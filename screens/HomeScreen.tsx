@@ -1,8 +1,9 @@
 import { Text, View, StyleSheet } from "react-native";
+import Carousel from "../components/Carousel";
 const HomeScreen = () => {
   return (
-    <View style={styles.container}>
-      <Text style={styles.homeText}>Home</Text>
+    <View>
+      <Carousel/>
     </View>
   );
 };
