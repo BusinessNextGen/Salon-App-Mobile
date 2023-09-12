@@ -1,4 +1,4 @@
-import { FlatList, Text, View, StyleSheet } from "react-native";
+import { FlatList, StyleSheet, Text, View } from "react-native";
 const Services = () => {
   const servicesList = [
     {

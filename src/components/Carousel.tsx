@@ -1,12 +1,5 @@
-import { useEffect, useRef, useState } from "react";
-import {
-  View,
-  Text,
-  FlatList,
-  Image,
-  Dimensions,
-  StyleSheet,
-} from "react-native";
+import { useRef, useState } from "react";
+import { Dimensions, FlatList, Image, StyleSheet, View } from "react-native";
 
 const Carousel = () => {
   const flatListRef = useRef();
@@ -16,15 +9,15 @@ const Carousel = () => {
   const imageData = [
     {
       id: 1,
-      image: require("../assets/hair.jpeg"),
+      image: require("../../assets/hair.jpeg"),
     },
     {
       id: 2,
-      image: require("../assets/service-salon.jpeg"),
+      image: require("../../assets/service-salon.jpeg"),
     },
     {
       id: 3,
-      image: require("../assets/download.jpeg"),
+      image: require("../../assets/download.jpeg"),
     },
   ];
 

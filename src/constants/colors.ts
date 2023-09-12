@@ -1,0 +1,5 @@
+export enum COLORS {
+  COLOR_PRIMARY = "#C80406",
+  COLOR_SECONDARY = "#AF856F",
+  COLOR_TERTIARY = "#F4F4F4",
+}
