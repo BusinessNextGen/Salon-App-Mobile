@@ -8,10 +8,12 @@ import { Text } from "react-native";
 import { COLORS } from "../constants/colors";
 import HomeScreen from "../screens/HomeScreen";
 import Services from "../screens/Services";
+import Appointment from "../screens/Appointment";
 
 type TabStackParamList = {
   Home: undefined;
   Services: undefined;
+  Appointment: undefined;
 };
 
 type TabBarLabelProps = BottomTabNavigationOptions["tabBarLabel"];
@@ -51,6 +53,14 @@ const TabNavigator = () => {
         options={{
           tabBarLabel: tabBarLabel("Services"),
           tabBarIcon: tabBarIcon("menu"),
+        }}
+      />
+      <Tab.Screen
+        name="Appointment"
+        component={Appointment}
+        options={{
+          tabBarLabel: tabBarLabel("Appointment"),
+          tabBarIcon: tabBarIcon("calendar-outline"),
         }}
       />
     </Tab.Navigator>
