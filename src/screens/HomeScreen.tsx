@@ -1,24 +1,13 @@
-import { StyleSheet, View } from "react-native";
-import Carousel from "../components/Carousel";
+import { Text, View } from "react-native";
+
 const HomeScreen = () => {
   return (
-    <View>
-      <Carousel />
+    <View className="flex flex-1 bg-grey1">
+      <Text style={{ color: "white", margin: 100, fontFamily: "urbanist" }}>
+        hello
+      </Text>
     </View>
   );
 };
 
-const styles = StyleSheet.create({
-  container: {
-    minHeight: "80%",
-    backgroundColor: "#FA8072",
-    justifyContent: "center",
-  },
-  homeText: {
-    textAlign: "center",
-    fontSize: 20,
-    fontWeight: "bold",
-    color: "white",
-  },
-});
 export default HomeScreen;

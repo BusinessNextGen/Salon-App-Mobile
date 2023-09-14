@@ -5,10 +5,10 @@ import {
 } from "@react-navigation/bottom-tabs";
 import React from "react";
 import { Text } from "react-native";
-import { COLORS } from "../constants/colors";
+import { colorMap } from "../constants/colors";
+import Appointment from "../screens/Appointment";
 import HomeScreen from "../screens/HomeScreen";
 import Services from "../screens/Services";
-import Appointment from "../screens/Appointment";
 
 type TabStackParamList = {
   Home: undefined;
@@ -26,25 +26,35 @@ const TabNavigator = () => {
   const tabBarIcon =
     (iconType: IconTypes): TabBarIconProps =>
     ({ focused, size }) => {
-      const iconColor = focused ? COLORS.COLOR_PRIMARY : COLORS.COLOR_SECONDARY;
+      const iconColor = focused ? colorMap.brandColor1 : colorMap.grey6;
       return <Ionicons name={iconType} color={iconColor} size={size} />;
     };
 
   const tabBarLabel =
     (title: string): TabBarLabelProps =>
     ({ focused }) => {
-      const className = focused ? "text-primary-color" : "text-secondary-color";
+      const className = focused ? "text-white" : "text-grey6";
       return <Text className={className}>{title}</Text>;
     };
 
   return (
-    <Tab.Navigator>
+    <Tab.Navigator
+      screenOptions={{
+        headerStyle: {
+          backgroundColor: colorMap.grey1,
+        },
+        tabBarStyle: {
+          backgroundColor: colorMap.grey3,
+        },
+      }}
+    >
       <Tab.Screen
         name="Home"
         component={HomeScreen}
         options={{
           tabBarIcon: tabBarIcon("home"),
           tabBarLabel: tabBarLabel("Home"),
+          headerShown: false,
         }}
       />
       <Tab.Screen
