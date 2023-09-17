@@ -45,6 +45,7 @@ const TabNavigator = () => {
         },
         tabBarStyle: {
           backgroundColor: colorMap.grey3,
+          borderTopWidth: 0,
         },
       }}
     >
