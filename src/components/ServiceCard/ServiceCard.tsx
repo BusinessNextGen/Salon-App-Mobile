@@ -1,17 +1,24 @@
 import React from "react";
-import { ImageBackground, StyleSheet, Text, View } from "react-native";
+import {
+  ImageBackground,
+  ImageSourcePropType,
+  StyleSheet,
+  Text,
+  View,
+} from "react-native";
 import IconNextButton from "../IconNextButton/IconNextButton";
 
 type ServiceCardProps = {
-  serviceType?: string;
-  price?: number;
+  serviceType: string;
+  price: number;
+  url: ImageSourcePropType;
 };
 
-const ServiceCard = (props: ServiceCardProps) => {
+const ServiceCard = ({ serviceType, price, url }: ServiceCardProps) => {
   return (
     <View className="rounded-xl w-full mt-4">
       <ImageBackground
-        source={require("../../../assets/images/hair-color.webp")}
+        source={url}
         className="h-full w-full rounded-xl overflow-hidden flex justify-end items-start"
         resizeMode="cover"
       >
@@ -20,10 +27,10 @@ const ServiceCard = (props: ServiceCardProps) => {
             className="text-white text-2xl capitalize "
             style={styles.header}
           >
-            coloring
+            {serviceType}
           </Text>
           <Text className="text-white z-10" style={styles.header}>
-            starting at $20
+            starting at ${price}
           </Text>
         </View>
       </ImageBackground>

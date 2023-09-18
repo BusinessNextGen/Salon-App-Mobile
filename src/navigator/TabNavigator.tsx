@@ -4,7 +4,7 @@ import {
   createBottomTabNavigator,
 } from "@react-navigation/bottom-tabs";
 import React from "react";
-import { Text, StyleSheet } from "react-native";
+import { StyleSheet, Text } from "react-native";
 import { colorMap } from "../constants/colors";
 import Appointment from "../screens/Appointment";
 import HomeScreen from "../screens/HomeScreen";
@@ -50,7 +50,9 @@ const TabNavigator = () => {
         tabBarStyle: {
           backgroundColor: colorMap.grey3,
           borderTopWidth: 0,
-          paddingTop: 10,
+          height: 60,
+          paddingBottom: 5,
+          paddingTop: 5,
         },
       }}
     >
