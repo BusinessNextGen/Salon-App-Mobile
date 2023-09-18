@@ -4,7 +4,7 @@ import {
   createBottomTabNavigator,
 } from "@react-navigation/bottom-tabs";
 import React from "react";
-import { Text } from "react-native";
+import { Text, StyleSheet } from "react-native";
 import { colorMap } from "../constants/colors";
 import Appointment from "../screens/Appointment";
 import HomeScreen from "../screens/HomeScreen";
@@ -24,8 +24,8 @@ const Tab = createBottomTabNavigator<TabStackParamList>();
 
 const TabNavigator = () => {
   const tabBarIcon =
-    (iconType: IconTypes): TabBarIconProps =>
-    ({ focused, size }) => {
+    (iconType: IconTypes, size = 20): TabBarIconProps =>
+    ({ focused }) => {
       const iconColor = focused ? colorMap.brandColor1 : colorMap.grey6;
       return <Ionicons name={iconType} color={iconColor} size={size} />;
     };
@@ -34,7 +34,11 @@ const TabNavigator = () => {
     (title: string): TabBarLabelProps =>
     ({ focused }) => {
       const className = focused ? "text-white" : "text-grey6";
-      return <Text className={className}>{title}</Text>;
+      return (
+        <Text className={className} style={styles.tabLabel}>
+          {title}
+        </Text>
+      );
     };
 
   return (
@@ -46,6 +50,7 @@ const TabNavigator = () => {
         tabBarStyle: {
           backgroundColor: colorMap.grey3,
           borderTopWidth: 0,
+          paddingTop: 10,
         },
       }}
     >
@@ -79,3 +84,9 @@ const TabNavigator = () => {
 };
 
 export default TabNavigator;
+
+const styles = StyleSheet.create({
+  tabLabel: {
+    fontFamily: "space-grotesk-medium",
+  },
+});

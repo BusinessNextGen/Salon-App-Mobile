@@ -6,7 +6,7 @@ import IconNextButton from "../IconNextButton/IconNextButton";
 const IntroHero = () => {
   return (
     <Container classes="mt-4">
-      <View className="h-36 w-full rounded-lg">
+      <View className="h-28 w-full rounded-lg">
         <ImageBackground
           source={require("../../../assets/images/hero-hair.jpg")}
           resizeMode="cover"
@@ -36,7 +36,6 @@ const IntroHero = () => {
             <IconNextButton />
           </View>
         </ImageBackground>
-        <View className="absolute w-full h-full bg-[#1d1d19] opacity-50 rounded-lg" />
       </View>
     </Container>
   );
