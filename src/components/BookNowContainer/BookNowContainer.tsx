@@ -1,7 +1,7 @@
 import { Feather } from "@expo/vector-icons";
 import React from "react";
-import { Pressable, StyleSheet, Text, View } from "react-native";
-import { colorMap } from "../../constants/colors";
+import { StyleSheet, Text, View } from "react-native";
+import BookingButton from "../../Buttons/BookingButton";
 import Container from "../Container/Container";
 
 const BookNowContainer = () => {
@@ -18,17 +18,10 @@ const BookNowContainer = () => {
         </View>
 
         <View className="flex flex-[1.5] rounded-2xl  overflow-hidden">
-          <Pressable
-            className="bg-brandColor1 flex-row justify-between items-center p-4 rounded-2xl overflow-hidden"
-            android_ripple={{
-              color: colorMap.brandColor2,
-            }}
-          >
-            <Text className="text-lg text-white" style={styles.bookingHeader}>
-              Book now
-            </Text>
-            <Feather name="arrow-right" size={24} color="white" />
-          </Pressable>
+          <BookingButton
+            icon={<Feather name="arrow-right" size={24} color="white" />}
+            title="Book now"
+          />
         </View>
       </View>
     </Container>
