@@ -1,4 +1,5 @@
 import { FlatList, StyleSheet, Text, View } from "react-native";
+import { colorMap } from "../constants/colors";
 const Services = () => {
   const servicesList = [
     {
@@ -39,7 +40,7 @@ const Services = () => {
 const styles = StyleSheet.create({
   services: {
     height: 50,
-    backgroundColor: "red",
+    backgroundColor: colorMap.grey4,
     margin: 10,
     alignItems: "center",
     justifyContent: "center",
