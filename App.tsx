@@ -10,6 +10,7 @@ const myTheme = {
   colors: {
     ...DefaultTheme.colors,
     background: colorMap.grey1,
+    border: colorMap.grey1,
   },
 };
 

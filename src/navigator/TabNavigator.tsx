@@ -5,16 +5,11 @@ import {
 } from "@react-navigation/bottom-tabs";
 import React from "react";
 import { StyleSheet, Text } from "react-native";
+import { type TabStackParamList } from "../../global";
 import { colorMap } from "../constants/colors";
 import Appointment from "../screens/Appointment";
 import HomeScreen from "../screens/HomeScreen";
 import Services from "../screens/Services";
-
-type TabStackParamList = {
-  Home: undefined;
-  Services: undefined;
-  Appointment: undefined;
-};
 
 type TabBarLabelProps = BottomTabNavigationOptions["tabBarLabel"];
 type TabBarIconProps = BottomTabNavigationOptions["tabBarIcon"];
@@ -66,11 +61,11 @@ const TabNavigator = () => {
         }}
       />
       <Tab.Screen
-        name="Services"
+        name="Favorites"
         component={Services}
         options={{
-          tabBarLabel: tabBarLabel("Services"),
-          tabBarIcon: tabBarIcon("menu"),
+          tabBarLabel: tabBarLabel("Favorites"),
+          tabBarIcon: tabBarIcon("bookmark"),
         }}
       />
       <Tab.Screen

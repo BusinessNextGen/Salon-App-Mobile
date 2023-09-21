@@ -1,52 +1,41 @@
-import { FlatList, StyleSheet, Text, View } from "react-native";
-import { colorMap } from "../constants/colors";
+import { StyleSheet, Text, View } from "react-native";
+import BookingButton from "../Buttons/BookingButton";
+import CategoryTabs from "../components/CategoryTabs/CategoryTabs";
+import Container from "../components/Container/Container";
+import ServiceTabDetailViewContent from "../components/TabViewContent/ServiceTabDetailViewContent";
+
 const Services = () => {
-  const servicesList = [
-    {
-      id: 1,
-      name: "Hair Spa",
-    },
-    {
-      id: 2,
-      name: "Hair cut",
-    },
-    {
-      id: 3,
-      name: "Facial",
-    },
-    {
-      id: 4,
-      name: "Massage",
-    },
-    {
-      id: 5,
-      name: "Detan",
-    },
-  ];
-  const displayServices = ({ item, index }) => {
-    return (
-      <View style={styles.services} key={index}>
-        <Text style={styles.serviceText}>{item.name}</Text>
-      </View>
-    );
-  };
   return (
-    <View>
-      <FlatList data={servicesList} renderItem={displayServices} />
+    <View className="flex-1">
+      <Container classes="mt-2 flex-1">
+        <View className="flex-row justify-between items-center">
+          <View className="">
+            <Text className="text-2xl text-white w-" style={styles.header}>
+              Choose Service
+            </Text>
+          </View>
+          <View>
+            <BookingButton
+              title="Done"
+              classes="p-2 w-28 flex justify-center items-center"
+            />
+          </View>
+        </View>
+        <View className="flex-1 mt-4">
+          <CategoryTabs renderScene={ServiceTabDetailViewContent} />
+        </View>
+      </Container>
     </View>
   );
 };
 
+export default Services;
+
 const styles = StyleSheet.create({
-  services: {
-    height: 50,
-    backgroundColor: colorMap.grey4,
-    margin: 10,
-    alignItems: "center",
-    justifyContent: "center",
+  header: {
+    fontFamily: "space-grotesk-bold",
   },
-  serviceText: {
-    color: "white",
+  subText: {
+    fontFamily: "urbanist-semibold",
   },
 });
-export default Services;

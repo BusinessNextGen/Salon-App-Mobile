@@ -17,7 +17,7 @@ const BookNowContainer = () => {
           </Text>
         </View>
 
-        <View className="flex flex-[1.5] rounded-2xl  overflow-hidden">
+        <View className="flex flex-[1.5]">
           <BookingButton
             icon={<Feather name="arrow-right" size={24} color="white" />}
             title="Book now"

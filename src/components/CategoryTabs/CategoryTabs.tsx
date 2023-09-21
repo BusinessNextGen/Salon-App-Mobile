@@ -1,42 +1,12 @@
 import { useState } from "react";
+import { StyleSheet, Text, View, useWindowDimensions } from "react-native";
 import {
-  StyleSheet,
-  Text,
-  View,
-  useWindowDimensions,
-  ImageSourcePropType,
-} from "react-native";
-import { TabBar, TabBarProps, TabView } from "react-native-tab-view";
-import Container from "../../components/Container/Container";
+  TabBar,
+  TabBarProps,
+  TabView,
+  type SceneRendererProps,
+} from "react-native-tab-view";
 import { colorMap } from "../../constants/colors";
-import ServiceCard from "../ServiceCard/ServiceCard";
-
-type ServicesList = Record<
-  string,
-  { serviceType: string; price: number; url: ImageSourcePropType }
->;
-
-const servicesList: ServicesList = {
-  hair: {
-    serviceType: "Coloring",
-    price: 20,
-    url: require("../../../assets/images/hair-color.webp"),
-  },
-  skin: {
-    serviceType: "Facials",
-    price: 10,
-    url: require("../../../assets/images/hero-face.webp"),
-  },
-  nails: {
-    serviceType: "Nail Art",
-    price: 15,
-    url: require("../../../assets/images/hero-nail.webp"),
-  },
-};
-
-const renderScene = ({ route }: { route: { key: string; title: string } }) => {
-  return <ServiceCard {...servicesList?.[route.key]} />;
-};
 
 const renderTabBar = (props: TabBarProps<{ key: string; title: string }>) => (
   <TabBar
@@ -73,7 +43,18 @@ const renderTabBar = (props: TabBarProps<{ key: string; title: string }>) => (
   />
 );
 
-const CategoryTabs = () => {
+type CategoryTabProps = {
+  renderScene: (
+    props: SceneRendererProps & {
+      route: {
+        key: string;
+        title: string;
+      };
+    }
+  ) => React.ReactNode;
+};
+
+const CategoryTabs = ({ renderScene }: CategoryTabProps) => {
   const layout = useWindowDimensions();
 
   const [index, setIndex] = useState(0);
@@ -88,17 +69,13 @@ const CategoryTabs = () => {
   };
 
   return (
-    <Container classes="mt-4">
-      <View className="h-56">
-        <TabView
-          navigationState={{ index, routes }}
-          renderScene={renderScene}
-          onIndexChange={handleIndexChange}
-          initialLayout={{ width: layout.width }}
-          renderTabBar={renderTabBar}
-        />
-      </View>
-    </Container>
+    <TabView
+      navigationState={{ index, routes }}
+      renderScene={renderScene}
+      onIndexChange={handleIndexChange}
+      initialLayout={{ width: layout.width }}
+      renderTabBar={renderTabBar}
+    />
   );
 };
 
