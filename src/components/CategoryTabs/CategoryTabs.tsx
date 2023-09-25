@@ -7,6 +7,7 @@ import {
   type SceneRendererProps,
 } from "react-native-tab-view";
 import { colorMap } from "../../constants/colors";
+import { getIndexBasedOnValue } from "../../utils/HomeScreen.utils";
 
 const renderTabBar = (props: TabBarProps<{ key: string; title: string }>) => (
   <TabBar
@@ -52,17 +53,24 @@ type CategoryTabProps = {
       };
     }
   ) => React.ReactNode;
+  defaultRoutes: { title: string; key: string }[];
+  defaultValue?: string;
 };
 
-const CategoryTabs = ({ renderScene }: CategoryTabProps) => {
+const CategoryTabs = ({
+  renderScene,
+  defaultRoutes,
+  defaultValue,
+}: CategoryTabProps) => {
   const layout = useWindowDimensions();
 
-  const [index, setIndex] = useState(0);
-  const [routes] = useState([
-    { key: "hair", title: "hair" },
-    { key: "skin", title: "skin" },
-    { key: "nails", title: "nails" },
-  ]);
+  const indexBasedOnDefaultValue = getIndexBasedOnValue({
+    value: defaultValue,
+    mapperArray: defaultRoutes,
+  });
+
+  const [index, setIndex] = useState(indexBasedOnDefaultValue);
+  const [routes] = useState(defaultRoutes);
 
   const handleIndexChange = (index: number) => {
     setIndex(index);

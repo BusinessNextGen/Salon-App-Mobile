@@ -16,14 +16,17 @@ type ServiceCardProps = {
   serviceType: string;
   price: number;
   url: ImageSourcePropType;
+  route: { key: string; title: string };
 };
 
-const ServiceCard = ({ serviceType, price, url }: ServiceCardProps) => {
+const ServiceCard = ({ route, serviceType, price, url }: ServiceCardProps) => {
   const navigation =
-    useNavigation<NativeStackNavigationProp<RootStackParamList, "Main">>();
+    useNavigation<NativeStackNavigationProp<RootStackParamList, "Services">>();
 
   const handleNavigation = () => {
-    navigation.navigate("Services");
+    navigation.navigate("Services", {
+      serviceType: route.key,
+    });
   };
 
   return (

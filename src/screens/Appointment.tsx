@@ -8,7 +8,7 @@ import SelectDropdown from "react-native-select-dropdown";
 import AppointmentBooking from "../components/AppointmentBooking/AppointmentBooking";
 import Container from "../components/Container/Container";
 import { colorMap } from "../constants/colors";
-import { slotList } from "../constants/slots";
+import { slotList } from "../constants/global";
 
 const categories = ["Hair", "Skin", "Nail"];
 const Appointment = () => {

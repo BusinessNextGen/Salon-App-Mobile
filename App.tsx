@@ -2,8 +2,10 @@ import { DefaultTheme, NavigationContainer } from "@react-navigation/native";
 import { useFonts } from "expo-font";
 import { StatusBar } from "expo-status-bar";
 import { View } from "react-native";
+import { Provider } from "react-redux";
 import { colorMap } from "./src/constants/colors";
 import RootNavigator from "./src/navigator/RootNavigator";
+import { store } from "./src/redux/store";
 
 const myTheme = {
   ...DefaultTheme,
@@ -31,12 +33,14 @@ function App() {
   }
 
   return (
-    <NavigationContainer theme={myTheme}>
-      <View className="flex-1">
-        <StatusBar style="light" />
-        <RootNavigator />
-      </View>
-    </NavigationContainer>
+    <Provider store={store}>
+      <NavigationContainer theme={myTheme}>
+        <View className="flex-1">
+          <StatusBar style="light" />
+          <RootNavigator />
+        </View>
+      </NavigationContainer>
+    </Provider>
   );
 }
 

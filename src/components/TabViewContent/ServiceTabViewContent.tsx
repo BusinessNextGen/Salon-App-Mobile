@@ -29,6 +29,6 @@ const ServiceTabViewContent = ({
 }: {
   route: { key: string; title: string };
 }) => {
-  return <ServiceCard {...servicesList?.[route.key]} />;
+  return <ServiceCard {...servicesList?.[route.key]} route={route} />;
 };
 export default ServiceTabViewContent;

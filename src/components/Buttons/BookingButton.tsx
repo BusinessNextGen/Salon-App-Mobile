@@ -1,6 +1,6 @@
 import React from "react";
 import { Pressable, StyleSheet, Text, View } from "react-native";
-import { colorMap } from "../constants/colors";
+import { colorMap } from "../../constants/colors";
 
 type BookButtonProps = {
   classes?: string;
