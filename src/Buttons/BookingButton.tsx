@@ -1,6 +1,9 @@
 import React from "react";
 import { Pressable, StyleSheet, Text, View } from "react-native";
 import { colorMap } from "../constants/colors";
+import { useNavigation } from "@react-navigation/native";
+import { NativeStackNavigationProp } from "@react-navigation/native-stack";
+import { RootStackParamList } from "../../global";
 
 type BookButtonProps = {
   classes?: string;
@@ -9,6 +12,12 @@ type BookButtonProps = {
 };
 
 const BookingButton = ({ classes, title, icon }: BookButtonProps) => {
+  const navigation =
+    useNavigation<NativeStackNavigationProp<RootStackParamList, "Main">>();
+
+  const handleNavigation = () => {
+    navigation.navigate("Appointment");
+  };
   return (
     <View className="rounded-2xl overflow-hidden">
       <Pressable
@@ -16,6 +25,7 @@ const BookingButton = ({ classes, title, icon }: BookButtonProps) => {
         android_ripple={{
           color: colorMap.brandColor2,
         }}
+        onPress={handleNavigation}
       >
         <Text className="text-lg text-white" style={styles.bookingHeader}>
           {title}

@@ -3,6 +3,7 @@ import { type RootStackParamList } from "../../global";
 import { colorMap } from "../constants/colors";
 import Services from "../screens/Services";
 import TabNavigator from "./TabNavigator";
+import ReviewBooking from "../screens/ReviewBookingt";
 
 const RootStack = createNativeStackNavigator<RootStackParamList>();
 
@@ -26,6 +27,7 @@ const RootNavigator = () => {
         />
       </RootStack.Group>
       <RootStack.Screen name="Services" component={Services} />
+      <RootStack.Screen name="ReviewBooking" component={ReviewBooking} />
     </RootStack.Navigator>
   );
 };
