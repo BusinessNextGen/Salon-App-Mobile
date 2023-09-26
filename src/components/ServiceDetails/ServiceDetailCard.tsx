@@ -1,10 +1,13 @@
 import { ImageBackground, Pressable, StyleSheet, Text } from "react-native";
+import { useAppDispatch } from "../../hooks/redux.hook";
+import { addService } from "../../redux/slices/serviceSlice";
 
 type ServiceDetailCardProps = {
   duration: string;
   description: string;
   price: number;
   title: string;
+  isItemSelected: boolean;
 };
 
 const ServiceDetailCard = ({
@@ -12,9 +15,21 @@ const ServiceDetailCard = ({
   duration,
   price,
   title,
+  isItemSelected,
 }: ServiceDetailCardProps) => {
+  const dispatch = useAppDispatch();
+
+  const handlePress = () => {
+    dispatch(addService({ description, duration, title, price }));
+  };
+
+  const borderStyle = isItemSelected ? "border-2 border-brandColor2" : "";
+
   return (
-    <Pressable className="mb-4 rounded-lg bg-grey2 p-4">
+    <Pressable
+      className={`mb-4 rounded-lg bg-grey2 p-4 ${borderStyle}`}
+      onPress={handlePress}
+    >
       <ImageBackground
         source={require("../../../assets/images/hair-color.webp")}
         resizeMode="cover"

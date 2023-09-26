@@ -1,10 +1,20 @@
+import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { StyleSheet, Text, View } from "react-native";
-import BookingButton from "../Buttons/BookingButton";
+import { RootStackParamList } from "../../global";
+import BookingButton from "../components/Buttons/BookingButton";
 import CategoryTabs from "../components/CategoryTabs/CategoryTabs";
 import Container from "../components/Container/Container";
 import ServiceTabDetailViewContent from "../components/TabViewContent/ServiceTabDetailViewContent";
+import { INITIAL_SERVICE_TAB_ROUTES } from "../constants/global";
 
-const Services = () => {
+type ServicesScreenProps = NativeStackScreenProps<
+  RootStackParamList,
+  "Services"
+>;
+
+const Services = ({ route }: ServicesScreenProps) => {
+  const params = route.params;
+
   return (
     <View className="flex-1">
       <Container classes="mt-2 flex-1">
@@ -22,7 +32,11 @@ const Services = () => {
           </View>
         </View>
         <View className="flex-1 mt-4">
-          <CategoryTabs renderScene={ServiceTabDetailViewContent} />
+          <CategoryTabs
+            defaultRoutes={INITIAL_SERVICE_TAB_ROUTES}
+            defaultValue={params?.serviceType}
+            renderScene={ServiceTabDetailViewContent}
+          />
         </View>
       </Container>
     </View>

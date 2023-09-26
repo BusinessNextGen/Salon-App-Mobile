@@ -7,6 +7,7 @@ import IntroHero from "../components/HeroSection/IntroHero";
 import SearchBarWithIcons from "../components/SearchBarWithIcons/SearchBarWithIcons";
 import ServiceTabViewContent from "../components/TabViewContent/ServiceTabViewContent";
 import WelcomeBannerWithNotification from "../components/WelcomeBannerWithNotification/WelcomeBannerWithNotification";
+import { INITIAL_SERVICE_TAB_ROUTES } from "../constants/global";
 
 const HomeScreen = () => {
   return (
@@ -18,7 +19,10 @@ const HomeScreen = () => {
         <WelcomeBannerWithNotification />
         <Container classes="mt-4">
           <View className=" h-56">
-            <CategoryTabs renderScene={ServiceTabViewContent} />
+            <CategoryTabs
+              defaultRoutes={INITIAL_SERVICE_TAB_ROUTES}
+              renderScene={ServiceTabViewContent}
+            />
           </View>
         </Container>
         <BookNowContainer />
