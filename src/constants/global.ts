@@ -38,3 +38,13 @@ export const slotList = [
     slot: "6:00 PM",
   },
 ];
+
+export const app_constants = {
+  COVID_19_PRIMARY:'Your health and safety are important to us. We have implemented rigorous safety protocols including:',
+  COVID_SAFETY_LIST:[
+    'Frequent sanitization of stations and equipment',
+    'Stylists wearing masks and gloves',
+    'Temperature checks for staff and clients',
+    'Social Distancing in the working area.'
+  ]
+};
