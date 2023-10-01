@@ -46,5 +46,7 @@ export const app_constants = {
     'Stylists wearing masks and gloves',
     'Temperature checks for staff and clients',
     'Social Distancing in the working area.'
-  ]
+  ],
+  PAYMENT_INFO_PRIMARY:'Your payment method on file will be charged after your appointment.',
+  PRIMARY_INF0_SECONDARY:"By cliking 'Confirm Booking' you agree to our salon policies and confirm your appointment"
 };
